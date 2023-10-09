@@ -32,7 +32,11 @@ void getUniqueRandomNumbers(array<int, SIZE>& a)
 // loops or recursion.
 int getLargestNumber(Stack<int>& stack)
 {
-	// TODO
+	int x = stack.pop();
+	if (x < stack.top()) {
+		x = stack.pop();
+	}
+	return x;
 }
 
 // Generates 3 unique random numbers, places them in a stack, then calls
@@ -53,7 +57,13 @@ bool runExperiment()
 // that passed.
 float runExperiments(int numExperiments)
 {
-	// TODO
+	int passed = 0;
+	for (int i = 0; i < numExperiments; i++) {
+		if (runExperiment()) {
+			passed++;
+		}
+	}
+	return (float)passed/numExperiments;
 }
 
 int main()
